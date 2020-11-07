@@ -8,7 +8,7 @@ import java.util.List;
 @RequestMapping("cards")
 public class CardController {
 
-    private CardService cardService;
+    private final CardService cardService;
 
     public CardController(CardService cardService) {
         this.cardService = cardService;
@@ -19,7 +19,7 @@ public class CardController {
         return cardService.findAllCards();
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public Card addNewCard(@RequestBody CardDTO cardDTO) {
         return cardService.addCard(cardDTO);
     }
