@@ -19,6 +19,17 @@ public class CardService {
         return cardRepository.save(cardToAdd);
     }
 
+    public void deleteCard(Long id){
+         cardRepository.deleteById(id);
+    }
+
+    public Card updateCard(Long id, String title, String description) {
+        Card cardToUpdate = cardRepository.findById(id).get();
+        cardToUpdate.setTitle(title);
+        cardToUpdate.setDescription(description);
+        return cardRepository.save(cardToUpdate);
+    }
+
     public List<Card> findAllCards() {
         return cardRepository.findAll();
     }

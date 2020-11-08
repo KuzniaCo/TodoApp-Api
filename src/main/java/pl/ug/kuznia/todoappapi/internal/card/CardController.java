@@ -24,4 +24,14 @@ public class CardController {
         return cardService.addCard(cardDTO);
     }
 
+    @DeleteMapping
+    public void deleteCard(@RequestParam(value = "id") Long id){
+        cardService.deleteCard(id);
+    }
+
+    @PutMapping
+    public Card updateCard(Long id,  String title,  String description){
+        return cardService.updateCard(id, title, description);
+
+    }
 }
