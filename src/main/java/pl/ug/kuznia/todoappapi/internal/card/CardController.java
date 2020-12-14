@@ -25,13 +25,13 @@ public class CardController {
     }
 
     @DeleteMapping
-    public void deleteCard(@RequestParam(value = "id") Long id){
+    public void deleteCard(@RequestParam(value = "id") Long id) {
         cardService.deleteCard(id);
     }
 
     @PutMapping
-    public Card updateCard(Long id,  String title,  String description){
-        return cardService.updateCard(id, title, description);
+    public Card updateCard(@RequestBody CardDTO cardDTO) {
+        return cardService.updateCard(cardDTO);
 
     }
 }

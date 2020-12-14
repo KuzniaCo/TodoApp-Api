@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 @Value
 public class CardDTO {
 
+    long id;
     @NotNull
     String title;
     @NotNull
@@ -14,6 +15,13 @@ public class CardDTO {
 
     public Card createCard() {
         return Card.builder()
+                .title(title)
+                .description(description)
+                .build();
+    }
+    public Card updateCard() {
+        return Card.builder()
+                .id(id)
                 .title(title)
                 .description(description)
                 .build();
